@@ -40,6 +40,7 @@ You don't need to do or update anyting. It just may work with next functions ins
 
 - Clone this repo.
 - Modify .devcontainer/.enw with plugin or theme path and the other WordPress params as needed.
+- From githtub repo, create codespace
 
 ## TO-DO/Wishlist
 
