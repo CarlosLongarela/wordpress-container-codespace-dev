@@ -44,6 +44,9 @@ RUN su www-data -c 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \
 # Install MC
 RUN apt-get install -y mc
 
+# Install htop
+RUN apt-get install -y htop
+
 # Install Java Runtime Environment (JRE)
 RUN apt-get install -y default-jre
 
