@@ -13,16 +13,7 @@
 		"vscode": {
 			"extensions": [
 				// You can add new "required" extensions to add to your VSCode on build. 
-				"xdebug.php-debug",
-				"xdebug.php-pack",
-				"wongjn.php-sniffer",
-				"bmewburn.vscode-intelephense-client",
-				"christian-kohler.path-intellisense",
-				"neilbrayfield.php-docblocker",
-				"claudiosanches.wpcs-whitelist-flags",
-				"yogensia.searchwpdocs",
-				"anthonydiametrix.ACF-Snippet",
-				"Zignd.html-css-class-completion"
+				"xdebug.php-debug"
 			]
 		}
 	}
