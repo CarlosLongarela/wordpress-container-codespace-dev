@@ -40,3 +40,12 @@ RUN curl -sSO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-c
 # Install nvm and node
 RUN su www-data -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash'
 RUN su www-data -c 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install --lts'
+
+# Install MC
+RUN apt-get install -y mc
+
+# Install Java Runtime Environment (JRE)
+RUN apt-get install -y default-jre
+
+# Install Java Development Kit (JDK)
+RUN apt-get install -y default-jdk
