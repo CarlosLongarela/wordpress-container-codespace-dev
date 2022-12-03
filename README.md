@@ -25,21 +25,11 @@ After mounting all the images, .devcontainer/setup.sh starts to execute and it a
 You don't need to do or update anyting. It just may work with next functions installed and configured:
 
  - PHP Debug by Xdebug (Extension and .launch configuration)
- - PHP Extension Pack by Xdebug
- - phpcs by shevsua (Code sniffer and linter with WordPress Code Standards base)
- - phpcbf by Per Soderlind (PHP Code Beautifier and Patcher)
- - PHP Intelliphense by Ben Mewburn
- - PHP DocBlocker by Neil Brayfield
- - ACF-Snippet by Anthony Hubble
- - Path Intellisense by Christian Kohler
- - html-css-class-completion
- - Search WordPress Docs by Yogendia
- - WPCS Whitelist Flags by Claudio Sanches
 
 ## How to use
 
 - Clone this repo.
-- Modify .devcontainer/.enw with plugin or theme path and the other WordPress params as needed.
+- Modify `.devcontainer/.env` with plugin or theme path and the other WordPress params as needed.
 - From githtub repo, create codespace
 
 ## TO-DO/Wishlist
