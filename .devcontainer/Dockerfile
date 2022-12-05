@@ -5,13 +5,17 @@ RUN usermod --shell /bin/bash www-data
 RUN touch /var/www/.bashrc
 RUN chown -R www-data: /var/www/
 
-# Install git, zip & wget
+# Install git, zip, wget, MC, htop, JRE, JDK
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git && \
     apt-get install -y sudo && \
     apt-get install -y zip && \
-    apt-get install -y wget 
+    apt-get install -y wget && \
+    apt-get install -y mc && \
+    apt-get install -y htop && \
+    apt-get install -y default-jre && \
+    apt-get install -y default-jdk
 
 # Allow www-data user to use sudo without password
 RUN adduser www-data sudo
@@ -40,15 +44,3 @@ RUN curl -sSO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-c
 # Install nvm and node
 RUN su www-data -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash'
 RUN su www-data -c 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install --lts'
-
-# Install MC
-RUN apt-get install -y mc
-
-# Install htop
-RUN apt-get install -y htop
-
-# Install Java Runtime Environment (JRE)
-RUN apt-get install -y default-jre
-
-# Install Java Development Kit (JDK)
-RUN apt-get install -y default-jdk
