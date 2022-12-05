@@ -46,17 +46,36 @@ fi
 echo "Starting WordPress project '$WORDPRESS_WWW_TITLE' in '/var/www/html'..."
 cd /var/www/html/
 
+# Install NPM utils
+npm install -g n
+n lts
+n latest
+n prune
+
 echo "Setting up WordPress at $WORDPRESS_SITE_HOST"
 wp core install \
     --url="$WORDPRESS_SITE_HOST" \
     --title="$WORDPRESS_WWW_TITLE" \
+    --locale="$WORDPRESS_LOCALE" \
     --admin_user="$WORDPRESS_WWW_ROOT_USER" \
     --admin_password="$WORDPRESS_WWW_ROOT_PASSWORD" \
     --admin_email="$WORDPRESS_WWW_ROOT_EMAIL" \
     --skip-email
 
+# Configure language
+wp language core install "$WORDPRESS_LOCALE"
+
+# Activate the core language pack.
+$ wp language core activate "$WORDPRESS_LOCALE"
+
 # WordPress - Install WordPress and activate plugins/themes.
-# wp plugin install SLUG-OF-PLUGIN-WP-REPO --activate # To install and activate plugin repository
-# wp plugin activate $SLUG # To activate custom made theme
-# wp theme install SLUG-OF-THEME-WP-REPO --activate # To install and activate plugin repository
-# wp theme activate $SLUG # To activate custom made theme
+wp plugin activate cl-ajuar-regalos # Activate this development plugin
+wp plugin install generateblocks --activate # To install and activate plugin repository
+wp plugin install pods --activate # To install and activate plugin repository
+wp plugin install query-monitor --activate # To install and activate plugin repository
+wp plugin install wp-crontrol --activate # To install and activate plugin repository
+wp theme install generatepress --activate # To install and activate plugin repository
+wp plugin delete hello
+wp plugin delete akismet
+wp theme delete twentytwentytwo
+wp theme delete twentytwentyone
