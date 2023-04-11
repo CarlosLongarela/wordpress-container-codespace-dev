@@ -1,6 +1,6 @@
 # Scaffolding for WordPress development with VSCode and containers/codespaces
 
-_Code forfed from https://github.com/dfragac/wordpress-container-dev thanks to @dfragac_
+_Code forked from https://github.com/dfragac/wordpress-container-dev thanks to @dfragac_
 
 Base scaffolding for WordPress development with VSCode in containers/codespaces. You just need to clone this respository and update a few parameters to begin to develop your plugin/theme or even your full WordPress website.
 
