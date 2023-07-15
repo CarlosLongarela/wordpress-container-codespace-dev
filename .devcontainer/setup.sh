@@ -84,7 +84,7 @@ wp language core install "$WORDPRESS_LOCALE"
 $ wp language core activate "$WORDPRESS_LOCALE"
 
 # WordPress - Install WordPress and activate plugins/themes.
-wp plugin activate cl-ajuar-regalos # Activate this development plugin
+wp plugin activate cl-this-plugin # Activate this development plugin
 wp plugin install generateblocks --activate # To install and activate plugin repository
 wp plugin install pods --activate # To install and activate plugin repository
 wp plugin install query-monitor --activate # To install and activate plugin repository
