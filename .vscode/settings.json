@@ -37,5 +37,8 @@
         "titleBar.inactiveBackground": "#094d2499",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#094d24"
+    "peacock.color": "#094d24",
+    "intelephense.environment.includePaths": [
+        "/var/www/html"
+      ]
 }
