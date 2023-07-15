@@ -18,6 +18,21 @@ git clone -b master https://github.com/WordPress/WordPress-Coding-Standards.git 
 sudo phpcs --config-set installed_paths /var/www/.wpcs/
 sudo phpcs --config-set default_standard WordPress
 
+# PHP Tooling - Compatibility Paragonie
+echo "Installing Compatibility Paragonie..."
+git clone -b master https://github.com/PHPCompatibility/PHPCompatibilityParagonie.git /var/www/.phpcp
+sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/
+
+# PHP Tooling - PHPCompatibility
+echo "Installing PHP Compatibility..."
+git clone -b master https://github.com/PHPCompatibility/PHPCompatibility.git /var/www/.phpc
+sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/www/.wpc/
+
+# PHP Tooling - PHPCompatibilityWP
+echo "Installing PHP Compatibility WP..."
+git clone -b master https://github.com/PHPCompatibility/PHPCompatibilityWP.git /var/www/.phpcwp
+sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/www/.phpc/,/var/www/.phpcwp/
+
 # NodeJS Tooling - Install dependencies and other stuff for blocks if using wp-scripts
 # echo "Installing NodeJS dependencies.."
 # Ref: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/
