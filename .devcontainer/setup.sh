@@ -46,7 +46,7 @@ sleep 5s
 # WordPress - Determine environment (local/codespace)
 if [[ "$CODESPACES" ]]
 then
-	WORDPRESS_SITE_HOST="https://${CODESPACE_NAME}-${WORDPRESS_WWW_PORT}.preview.app.github.dev"
+	WORDPRESS_SITE_HOST="https://${CODESPACE_NAME}-${WORDPRESS_WWW_PORT}.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
 else
 	WORDPRESS_SITE_HOST="http://localhost:${WORDPRESS_WWW_PORT}"
 fi
@@ -63,9 +63,9 @@ cd /var/www/html/
 
 # Install NPM utils
 npm install -g n
-n lts
-n latest
-n prune
+sudo /var/www/.nvm/versions/node/v18.16.1/bin/n lts
+sudo /var/www/.nvm/versions/node/v18.16.1/bin/n latest
+sudo /var/www/.nvm/versions/node/v18.16.1/bin/n prune
 
 echo "Setting up WordPress at $WORDPRESS_SITE_HOST"
 wp core install \
@@ -80,13 +80,9 @@ wp core install \
 # Configure language
 wp language core install "$WORDPRESS_LOCALE"
 
-# Activate the core language pack.
-$ wp language core activate "$WORDPRESS_LOCALE"
-
 # WordPress - Install WordPress and activate plugins/themes.
 wp plugin activate cl-this-plugin # Activate this development plugin
 wp plugin install generateblocks --activate # To install and activate plugin repository
-wp plugin install pods --activate # To install and activate plugin repository
 wp plugin install query-monitor --activate # To install and activate plugin repository
 wp plugin install wp-crontrol --activate # To install and activate plugin repository
 wp theme install generatepress --activate # To install and activate plugin repository
@@ -94,3 +90,6 @@ wp plugin delete hello
 wp plugin delete akismet
 wp theme delete twentytwentytwo
 wp theme delete twentytwentyone
+
+# Change to WordPress installation root.
+cd /var/www/html
