@@ -35,8 +35,8 @@ sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/ww
 
 # PHP Tooling - WooCommerce Sniffs
 echo "Installing WooCommerce Sniffs..."
-git clone -b trunk https://github.com/woocommerce/woocommerce-sniffs/ woocs
-sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/www/.phpc/,/var/www/.phpcwp/,/var/www/woocs/
+git clone -b trunk https://github.com/woocommerce/woocommerce-sniffs/ /var/www/.woocs
+sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/www/.phpc/,/var/www/.phpcwp/,/var/www/.woocs/src/
 
 # NodeJS Tooling - Install dependencies and other stuff for blocks if using wp-scripts
 # echo "Installing NodeJS dependencies.."
