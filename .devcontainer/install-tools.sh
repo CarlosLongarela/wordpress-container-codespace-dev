@@ -33,6 +33,11 @@ echo "Installing PHP Compatibility WP..."
 git clone -b master https://github.com/PHPCompatibility/PHPCompatibilityWP.git /var/www/.phpcwp
 sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/www/.phpc/,/var/www/.phpcwp/
 
+# PHP Tooling - WooCommerce Sniffs
+echo "Installing WooCommerce Sniffs..."
+git clone -b trunk https://github.com/woocommerce/woocommerce-sniffs/ woocs
+sudo phpcs --config-set installed_paths /var/www/.wpcs/,/var/www/.phpcp/,/var/www/.phpc/,/var/www/.phpcwp/,/var/www/woocs/
+
 # NodeJS Tooling - Install dependencies and other stuff for blocks if using wp-scripts
 # echo "Installing NodeJS dependencies.."
 # Ref: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/
@@ -82,6 +87,7 @@ wp language core install "$WORDPRESS_LOCALE"
 
 # WordPress - Install WordPress and activate plugins/themes.
 wp plugin activate cl-this-plugin # Activate this development plugin
+# wp plugin install woocommerce --activate # To install and activate plugin repository
 wp plugin install generateblocks --activate # To install and activate plugin repository
 wp plugin install query-monitor --activate # To install and activate plugin repository
 wp plugin install wp-crontrol --activate # To install and activate plugin repository

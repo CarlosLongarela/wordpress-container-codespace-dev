@@ -8,7 +8,7 @@
 	],
 	"dockerComposeFile": "docker-compose.yml",
 	"remoteUser": "www-data",
-	"postCreateCommand": "${containerWorkspaceFolder}/.devcontainer/setup.sh",
+	"postCreateCommand": "bash -i ${containerWorkspaceFolder}/.devcontainer/install-tools.sh",
 	"customizations": {
 		"vscode": {
 			"extensions": [
